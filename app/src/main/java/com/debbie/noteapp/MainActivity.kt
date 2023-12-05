@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                         Button(onClick = {
 
                         }){
-                            Text(text = "Login")
+                            Text(text = "Register")
                         }
                     }
                 }
