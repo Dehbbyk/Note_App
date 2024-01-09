@@ -60,6 +60,9 @@ class MainActivity : ComponentActivity() {
 fun LoginScreen(){
     var username by remember { mutableStateOf("")}
     var password by remember { mutableStateOf("")}
+    var fullname by remember { mutableStateOf("")}
+    var email by remember { mutableStateOf("")}
+    var confirmpassword by remember { mutableStateOf("")}
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -70,12 +73,28 @@ fun LoginScreen(){
                 textAlign = TextAlign.Center
             )
             TextField(
+            value = fullname,
+            onValueChange = {fullnameInput -> fullname = fullnameInput},
+            label = { Text("Fullname")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp)
+            )
+            TextField(
                 value = username,
                 onValueChange = {usernameInput -> username = usernameInput},
                 label = { Text("Username")},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 10.dp)
+            )
+            TextField(
+            value = email,
+            onValueChange = {emailInput -> email = emailInput},
+            label = { Text("Email")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp)
             )
             TextField(
                 value = password,
@@ -86,10 +105,22 @@ fun LoginScreen(){
                     .fillMaxWidth()
                     .padding(bottom = 10.dp)
             )
+            TextField(
+            value = confirmpassword,
+            onValueChange = {cpwdInput -> confirmpassword = cpwdInput},
+            label = {Text("Confirm Password")},
+            visualTransformation = PasswordVisualTransformation(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp)
+            )
             RememberMe()
             Button(onClick = {}) {
                 Text(text = "Login")
             }
+        Button(onClick = {}) {
+            Text(text = "Forget Password?")
+        }
         Row{
             Image(
                 painter = painterResource(id = R.drawable.facebook_icon),
