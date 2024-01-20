@@ -1,10 +1,16 @@
 package com.debbie.noteapp.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.Query
+import com.debbie.noteapp.models.Note
 
 @Dao
 interface NoteDao {
     @Insert
-    fun saveNote(note: com.debbie.noteapp.models.Note)
+    suspend fun saveNote(note: Note)
+
+    @Query("select = from note")
+    fun fetchNotes(): LiveData<List<Note>>
 }
