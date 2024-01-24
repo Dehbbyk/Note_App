@@ -11,6 +11,6 @@ interface NoteDao {
     @Insert
     suspend fun saveNote(note: Note)
 
-    @Query("select = from note")
+    @Query("select * from notes")
     fun fetchNotes(): LiveData<List<Note>>
 }

@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.debbie.noteapp.screens.AddNoteScreen
+import com.debbie.noteapp.screens.NoteDetailsScreen
 import com.debbie.noteapp.screens.NoteListScreen
 
 @Composable
@@ -25,12 +26,16 @@ fun AppNavigation(){
         composable(Routes.AddNoteRoute){
             AddNoteScreen(navController)
         }
+        composable(Routes.NoteDetails){
+            NoteDetailsScreen(NavController = navController)
+        }
     }
 }
 
 object Routes{
     val NoteListRoute = "note-list"
     val AddNoteRoute = "add-note"
+    val NoteDetails = "note-details"
 }
 
 @Preview
