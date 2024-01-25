@@ -1,5 +1,6 @@
 package com.debbie.noteapp
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -26,8 +27,12 @@ fun AppNavigation(){
         composable(Routes.AddNoteRoute){
             AddNoteScreen(navController)
         }
-        composable(Routes.NoteDetails){
-            NoteDetailsScreen(NavController = navController)
+        composable("note-details/{noteId}"){
+            Log.d("THIS IS THE NOTE ID WE GOT", it.arguments!!.getInt("noteId").toString())
+            NoteDetailsScreen(
+                NavController = navController,
+                noteId = it.arguments!!.getString("noteId")!!
+            )
         }
     }
 }
@@ -35,7 +40,9 @@ fun AppNavigation(){
 object Routes{
     val NoteListRoute = "note-list"
     val AddNoteRoute = "add-note"
-    val NoteDetails = "note-details"
+    fun NoteDetails(noteId: String): String{
+        return "note-details/$noteId"
+    }
 }
 
 @Preview

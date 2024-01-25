@@ -12,6 +12,7 @@ class NoteViewModel(var applicationn: Application): AndroidViewModel(application
 // calling the save function of the database
     private val db = DatabaseConfig.getInstance(applicationn)
     fun saveNote(title: String, content: String){
+        if(title.isNullOrEmpty() && content.isNullOrEmpty()) return
 //        creating a note instance
         val note = Note(
             title = title,

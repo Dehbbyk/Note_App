@@ -1,6 +1,7 @@
  package com.debbie.noteapp.screens
 
 import android.provider.ContactsContract.CommonDataKinds.Note
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -54,7 +55,9 @@ import com.debbie.noteapp.view_model.NoteViewModel
                  navigationIcon = {
                      IconButton(
                          onClick = {
+//                             saves the note
                              noteViewModel.saveNote(title,content)
+//                             takes user back
                              navController.popBackStack()
                          }){
                          Icon(

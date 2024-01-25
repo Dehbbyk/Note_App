@@ -20,7 +20,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NoteDetailsScreen(NavController: NavController){
+fun NoteDetailsScreen(NavController: NavController, noteId: String){
     Scaffold(
        topBar = {
            TopAppBar(
@@ -48,6 +48,8 @@ fun NoteDetailsScreen(NavController: NavController){
        }
     ){paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)){
+            Text("Note title will appear here $noteId")
+            Text("Note content will appear here")
         }
 
     }
